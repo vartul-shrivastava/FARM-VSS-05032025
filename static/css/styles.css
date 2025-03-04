@@ -1,0 +1,938 @@
+/* ----------------------------
+   GLOBAL & RESET STYLES
+---------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: "Teachers", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0;
+  color: #004aad;
+  /* Optional Overlay for Better Readability */
+  position: relative;
+}
+p{
+  color: #282828;
+}
+/* ----------------------------
+   FIXED HEADER & FOOTER
+
+/* Provide top and bottom spacing for the main content so it doesn't 
+   go under the fixed header or footer. */
+main {
+  padding-top: 80px;   /* height of header + some margin */
+  padding-bottom: 60px; /* height of footer */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ----------------------------
+   NAVBAR (if needed inside header)
+---------------------------- */
+.navbar a {
+  
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 1em;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #d9d9ff;
+  text-decoration: underline;
+}
+/* styles.css */
+
+/* Greeting Overlay with Fade-in Animation */
+.greeting-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.greeting-overlay.show {
+  display: flex;
+  opacity: 1;
+}
+
+.greeting-overlay.hide {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* ----------------------------
+   CONTAINER / SECTION
+---------------------------- */
+.container {
+  backdrop-filter: blur(10px); /* Adds a blur effect to the container */
+  border-radius: 12px;
+  padding: 20px;
+  margin-left: 200px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  overflow: hidden; /* Ensures content stays within rounded corners */
+}
+
+/* ----------------------------
+   Introductory Overlay Styles
+---------------------------- */
+
+/* Introductory Container using Flexbox */
+.intro-container {
+  background: white;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Logo Styling */
+.intro-logo {
+  margin: auto 20px;
+  width: 300px; /* Fixed width for the logo */
+}
+
+.intro-logo .site-logo {
+  width: 100%; /* Ensure the logo fits within its container */
+  height: auto;
+}
+
+/* Information Styling */
+.intro-info {
+  flex: 1; /* Takes up the remaining space */
+}
+
+.intro-info h2 {
+  color: #3a3a3a;
+  margin-bottom: 10px;
+}
+
+.intro-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Bullet Points Styling */
+.intro-points {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.intro-points li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .intro-logo {
+    flex: 0 0 auto;
+    margin-bottom: 15px;
+  }
+  
+  .intro-points {
+    padding-left: 15px;
+    text-align: left;
+  }
+}
+
+.container:hover {
+  backdrop-filter: blur(15px); /* Increases blur effect for hover state */
+  border-radius: 16px; /* Slightly larger radius for hover */
+  padding: 20px;
+  margin-left: 200px;
+  margin-bottom: 30px;
+}
+
+section h2 {
+  margin-bottom: 15px;
+}
+
+/* ----------------------------
+   FORMS
+---------------------------- */
+form {
+  margin: 5px 0;
+}
+
+form label {
+  display: inline-block;
+  margin-bottom: 3px;
+}
+
+
+/* ----------------------------
+   TABLES & ALERTS
+---------------------------- */
+.table-container {
+  max-height: 400px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  backdrop-filter: blur(10px); /* Adds a blur effect to the header */
+  background: #f5f4ff;
+  color: #060e36;
+}
+
+table tr:nth-child(even) {
+  background: #f5f4ff;
+  color: #060e36;
+}
+
+.alert {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.submit-button {
+  background: #6c63ff;
+  
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  color: #6c63ff;
+  transform: translateY(-2px);
+}
+
+.alert.success {
+  background: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert.danger {
+  background: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+/* Overlay Styles */
+.overlay {
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+/* ----------------------------
+   CONFIG CARDS GRID
+---------------------------- */
+.config-cards-grid {
+  color: #282828;
+  max-height: 70%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+  overflow-y: auto;
+}
+
+.config-card {
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
+  text-align: left;
+  height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.config-card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.config-card h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.config-card label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.range-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.range-inputs input {
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Collapsible & Toggle Icon */
+.collapsible-section {
+  max-height: 500px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+
+
+input {
+  background: rgb(231, 242, 255);
+  padding: 5px;
+  margin: 5px;
+}
+
+.collapsible-header h3 {
+  margin: 0;
+}
+
+.collapsible-content {
+  padding: 10px;
+  background-color: #f1f5ff;
+  display: none;
+}
+
+.toggle-icon {
+  font-size: 1.2em;
+  transition: transform 0.2s ease;
+}
+
+.toggle-icon.rotate {
+  transform: rotate(180deg);
+}
+
+.phase-header {
+  background-color: #6c63ff;
+  
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.phase-header h4 {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.phase-content {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.combinations-table,
+.farm-rules-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.combinations-table th,
+.farm-rules-table th,
+.combinations-table td,
+.farm-rules-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.combinations-table thead,
+.farm-rules-table thead {
+  background-color: #0c0944;
+  
+}
+
+.combinations-table tbody tr:nth-child(even),
+.farm-rules-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.combinations-table tbody tr:hover,
+.farm-rules-table tbody tr:hover {
+  background-color: #eaeaea;
+}
+
+.status-kept {
+  color: #155724;
+  font-weight: bold;
+  text-align: center;
+}
+
+.status-pruned {
+  color: #721c24;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* 
+   Responsive 
+*/
+@media (max-width: 768px) {
+  main {
+    padding-top: 100px; /* bigger offset for header if needed */
+    padding-bottom: 80px; 
+    margin-bottom: 0;
+  }
+
+
+  .site-header .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .site-title {
+    font-size: 1.4em;
+  }
+
+  .header-upload-form {
+    gap: 5px;
+  }
+
+  .config-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .config-card {
+    height: auto; /* Let cards expand on smaller screens */
+  }
+}
+/* Collapsible section with no data (red tint) */
+.collapsible-section.data-empty {
+  border-color: #ffcccc;
+  background-color: #ffe6e6;
+}
+/* Loading overlay */
+.loading-overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth fade-in/out */
+}
+
+/* Spinner */
+.spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #9d97ff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 0.2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Example theme changes for no-content vs. has-content */
+.plots-container{
+  display: flex;
+  overflow-y: auto;
+  gap: 10px;
+}
+
+.plots-container img{
+  max-width: 40%;
+}
+#popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 40vh; /* To center the text vertically */
+  z-index: 9999;
+}
+
+/* Collapsible section with no data (red background/border) */
+.collapsible-section.no-content {
+  background-color: #ffffff;
+}
+
+/* Collapsible section with data (blue background/border) */
+.collapsible-section.has-content {
+  background-color: #e6f2ff;
+}
+
+.model-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.model-selector label {
+  font-weight: bold;
+  
+}
+
+.model-selector select {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.model-selector {
+  background-color: #6c63ff;
+  
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.model-selector  {
+  background-color: #514cbb;
+  transform: translateY(-2px);
+}
+
+/**********************************************
+ * HEADER LAYOUT
+ **********************************************/
+ .site-header {
+  backdrop-filter: blur(10px); /* Adds a blur effect to the header */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: #323232;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1); /* Enhanced shadows for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle bottom border for definition */
+}
+
+.site-header:hover {
+  backdrop-filter: blur(15px); /* Slightly increase blur on hover */
+}
+
+
+.header-left,
+.header-center,
+.header-right {
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Primary site logo */
+.site-logo {
+  height: 70px;
+  /* If you prefer a fixed height or use width: auto */
+  cursor: pointer;
+}
+
+/* Header upload form */
+.header-upload-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Buttons generally */
+.btn {
+  background: transparent;
+  color: #282828;
+  padding: 6px 12px;
+  border: 1px solid #3d3d3d;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #ffffff;
+  color: rgb(27, 22, 121);
+  transform: translateY(-2px);
+}
+
+/* Buttons generally */
+.p-btn {
+  background: #514cbb;
+  color: #ffffff;
+  padding: 6px 12px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.p-btn:hover {
+  border: 2px solid #514cbb;
+  background: #ffffff;
+  color: rgb(27, 22, 121);
+  transform: translateY(-2px);
+}
+
+/**********************************************
+ * MODEL SELECTION
+ **********************************************/
+.model-selection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ollama-logo {
+  height: 30px; /* or any suitable size */
+  cursor: pointer;
+}
+
+.model-selection-title {
+  margin: 0;
+  font-size: 0.9em; /* Slightly smaller than default */
+  
+  font-weight: normal;
+}
+
+.model-selection select {
+  color: 514cbb;
+  background: rgb(234, 234, 234);
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.partitionUI {
+  background: whitesmoke;
+}
+
+/* Styling for headings and paragraphs */
+#summaryContent h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #070541;
+  margin-top: 15px;
+}
+
+
+/* Styling for headings and paragraphs */
+#summaryContent h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #070541;
+  margin-top: 15px;
+}
+
+#summaryContent p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #070541;
+}
+
+/* Emphasize bold text */
+#summaryContent strong {
+  font-weight: bold;
+  color: #070541;
+}
+
+
+/**********************************************
+ * MAIN CONTENT
+ **********************************************/
+.main-content {
+  padding-top: 80px; /* room for the fixed header */
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/**********************************************
+ * FOOTER
+ **********************************************/
+.site-footer {
+  backdrop-filter: blur(10px); /* Adds a blur effect to the footer */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9em;
+  z-index: 999;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/**********************************************
+ * ADD ANY OTHER STYLES FOR PARTITION UI, ETC.
+ **********************************************/
+/* Hide the default input */
+#fileInput {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Style the custom label */
+.custom-file-label {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: rgb(231, 242, 255); /* Transparent button */
+  border: 1px solid #ffffff; /* Optional: Add a border */
+  color: #004aad; /* Text color */
+  font-size: 11px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-width: 200px; /* Ensure some width for the label */
+  text-align: center;
+}
+
+/* Hover effect */
+.custom-file-label:hover {
+  background-color: #004aad; /* Optional: Add hover effect */
+  color: #ffffff;
+}
+
+
+/*****************************************************
+  * FIXED LEFT MENU FOR THRESHOLD SETTINGS
+  *****************************************************/
+  .left-menu {
+  position: fixed;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  padding: 10px 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 100; /* Ensure it stays above main content */
+}
+
+.left-menu h3 {
+  color:#004aad;
+  z-index: 101;
+  margin-top: 120px;
+  font-size: 1.2rem;
+}
+.left-menu label {
+  
+  display: block;
+  margin-top: 15px;
+  color:#060e36;    
+}
+.left-menu input {
+  background-color: rgb(231, 242, 255);
+  background: rgb(231, 242, 255);
+  width: 70%;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+********
+  * MAIN CONTENT OFFSET
+  *****************************************************/
+/* Add left margin so the main content doesn't go under the menu */
+.main-content {
+  margin-left: 270px; /* Matches the .left-menu width + some spacing */
+  padding: 20px;
+}
+
+#modifyPromptModal .overlay-content {
+  width: 60%;
+  max-width: 600px;
+}
+
+#farmPlotImage{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#promptTextarea {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  resize: vertical;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Summary Overlay Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-content {
+  color: #282828;
+  backdrop-filter: blur(10px); /* Adds a blur effect to the overlay */
+  background: white;
+  padding: 20px 30px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.overlay-content-prompt {
+  background: white;
+  backdrop-filter: blur(10px); /* Adds a blur effect to the overlay */
+  padding: 20px 30px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+/* Rotate icon when active */
+.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+
+/* Optional: Styles for collapsible sections */
+.collapsible-header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.collapsible-content {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  display: none;
+}
